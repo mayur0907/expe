@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign_up</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <section class="container">
+        <header>User_Sign_up</header>
+        <form onsubmit="savetolocalstaorage(event)" class="form">
+            <div class="input-box">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter Name" required />
+            </div>
+
+            <div class="input-box">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" required />
+            </div>
+
+            <div class="input-box">
+                <label for="contact">Contact</label>
+                <input type="number" id="contact" name="contact" placeholder="Enter Contact" />
+            </div>
+
+            <div class="input-box">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter Password" required />
+            </div>
+            <button type="submit">Submit</button>
+            <a href="http://127.0.0.1:5500/frontend/login.html">Login</a>
+        </form>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+
+    <script>
+        async function savetolocalstaorage(event) {
+            event.preventDefault();
+            const name = event.target.name.value;
+            const email = event.target.email.value;
+            const contact = event.target.contact.value;
+            const password = event.target.password.value;
+
+            const obj = {
+                name,
+                email,
+                contact,
+                password,
+            };
+
+            await axios
+                .post("http://localhost:3000/User", obj)
+                .then((response) => {
+                    alert("successfully resister");
+                    event.target.reset();
+                    if (response.status === 201) {
+                        window.location.href = "./login.html"; //redirecting user to login page if response was successful
+                        console.log("response from addmethod", response);
+                    } else {
+                        throw new error("Failed to login");
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+    </script>
+</body>
+
+</html>

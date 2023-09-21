@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(130, 106, 251);
+    padding: 20px;
+}
+
+.container {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.container header {
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.container .form {
+    margin-top: 30px;
+}
+
+.form .input-box {
+    margin-top: 20px;
+    width: 100;
+}
+
+.input-box label {
+    color: rgb(1, 18, 19);
+}
+
+.form .input-box input {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 8px;
+    color: rgb(18, 14, 22);
+    outline: none;
+    border: 1px solid rgb(214, 201, 201);
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.form button {
+    height: 55px;
+    width: 100%;
+    color: black;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    border-radius: 6px;
+    font-weight: 400;
+    cursor: pointer;
+    background-color: rgb(130, 106, 251);
+}
+
+.form button:hover {
+    background-color: rgb(9, 17, 241);
+}
